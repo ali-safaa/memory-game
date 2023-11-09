@@ -7,24 +7,24 @@ body {
      background-color: rgb(141, 48, 48);
 }
 .container {
-     width: 500px;
      margin: 0 auto;
+     width: 970px;
+     height: 995px;
 }
 
 h2 {
      text-align: center;
      padding-top: 20px;
      color: white;
-     font-weight: lighter;
+     font-weight: bold;
      padding-bottom: 20px;
 }
 
 .game {
-     display: flex;
-     width: 430px;
-     height: 430px;
-     flex-wrap: wrap;
-     gap: 10px;
+     display: grid;
+     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+     row-gap: 10px;
+     align-items: center;
      transform-style: preserve-3d;
      perspective: 500px;
 }
@@ -33,12 +33,12 @@ h2 {
      position: relative;
      font-size: 40px;
      display: flex;
-     background-color: white;
+     background-color: #b3b369;
      align-items: center;
      justify-content: center;
      transition: 0.25s;
-     width: 100px;
-     height: 100px;
+     width: 230px;
+     height: 300px;
      cursor: pointer;
      transform: rotateY(180deg);
 }
@@ -55,13 +55,15 @@ h3 {
 }
 
 .item::after {
-     content: "";
-     background-color: gray;
-     inset: 0;
+     content: '';
+     background-image: url('/images/spider.png');
      position: absolute;
      transition: 0.25s;
+     inset: 0;
      transform: rotateY(0deg);
      backface-visibility: hidden;
+     background-size: 100px;
+     background-color: rgb(173, 34, 34);
 }
 
 .boxOpen::after,
@@ -72,3 +74,25 @@ h3 {
 .item.boxOpen {
      transform: rotateY(0deg);
 }
+
+
+.winning {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 20px;
+     font-size: 40px;
+     color: white;
+}
+
+
+@media only screen and (max-width: 1053px) {
+     .item {
+          width: 200px;
+          height: 250px;
+     }
+     .container {
+     width: 840px;
+     }
+    
+   }
